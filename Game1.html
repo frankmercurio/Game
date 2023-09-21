@@ -3,65 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Guess the Number Game</title>
     <style>
-        /* Your existing CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 10px;
+        }
 
-        /* Add specific styles for the game section if needed */
-        #game-section {
-            background-color: #f0f0f0;
-            padding: 20px;
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My GitHub Page</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Welcome to my GitHub Page. I'm a web developer passionate about creating accessible and user-friendly websites.</p>
-        </section>
-
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <p>Check out my projects and creations:</p>
-            <ul>
-                <li><a href="project1.html">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
-                <li><a href="project3.html">Project 3</a></li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out:</p>
-            <p>Email: contact@example.com</p>
-            <p>Twitter: <a href="https://twitter.com/example">example</a></p>
-        </section>
-
-        <!-- Game Section -->
-        <section id="game-section">
-            <h2>Guess the Number Game</h2>
-            <p>Guess a number between 1 and 10:</p>
-            <input type="number" id="guessInput">
-            <button onclick="checkGuess()">Submit Guess</button>
-            <p id="result"></p>
-        </section>
-    </main>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 10:</p>
+    <input type="number" id="guessInput">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="result"></p>
 
     <script>
-        // Generate a random number between 1 and 10 for the game
+        // Generate a random number between 1 and 10
         const targetNumber = Math.floor(Math.random() * 10) + 1;
 
         function checkGuess() {
