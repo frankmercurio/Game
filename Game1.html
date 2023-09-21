@@ -1,56 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Number Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            padding: 0 10px;
-        }
-
-        input[type="number"] {
-            width: 60px;
-            padding: 5px;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-        }
-
-        #result {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-    </style>
+  <title>Guessing Game</title>
+  <style>
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <p>Guess a number between 1 and 10:</p>
-    <input type="number" id="guessInput">
-    <button onclick="checkGuess()">Submit Guess</button>
-    <p id="result"></p>
+  <h1>Guess the Correct Number!</h1>
+  <input type="number" id="userGuess" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Submit Guess</button>
+  <div class="result" id="resultDisplay"></div>
 
-    <script>
-        // Generate a random number between 1 and 10
-        const targetNumber = Math.floor(Math.random() * 10) + 1;
+  <script>
+    function checkGuess() {
+      const randomNumber = Math.floor(Math.random() * 10) + 1; // Generate a random number between 1 and 10
+      const userGuess = parseInt(document.getElementById('userGuess').value);
 
-        function checkGuess() {
-            const guess = parseInt(document.getElementById('guessInput').value);
-
-            if (isNaN(guess) || guess < 1 || guess > 10) {
-                document.getElementById('result').innerText = 'Please enter a valid number between 1 and 10.';
-            } else if (guess === targetNumber) {
-                document.getElementById('result').innerText = 'Congratulations! You escaped the leafy stink!';
-            } else {
-                document.getElementById('result').innerText = '*Green air blast*.';
-            }
-        }
-    </script>
+      if (isNaN(userGuess)) {
+        document.getElementById('resultDisplay').innerHTML = 'Please enter a valid number.';
+      } else if (userGuess === randomNumber) {
+        document.getElementById('resultDisplay').innerHTML = '<img src="meat.png" alt="Meat" width="50px" height="50px">';
+      } else {
+        document.getElementById('resultDisplay').innerHTML = '<img src="leaf.png" alt="Leaf" width="50px" height="50px">';
+      }
+    }
+  </script>
 </body>
 </html>
